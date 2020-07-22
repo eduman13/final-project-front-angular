@@ -1,0 +1,82 @@
+<form [formGroup]="patientForm">
+  <mat-card>
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <span class="view-card-title">{{ pageTitle }}</span>
+        <span class="title-spacer"></span>
+        <mat-card-actions>
+          <button mat-mini-fab style="margin-right:30px;" (click)="goToLink()"><mat-icon>local_hospital</mat-icon></button>
+        </mat-card-actions>
+        <mat-card-actions>
+          <button mat-mini-fab style="margin-right:30px;" (click)="openDialog()"><mat-icon>local_pharmacy</mat-icon></button>
+        </mat-card-actions>
+        <mat-card-actions>
+          <button mat-mini-fab style="margin-right:30px;" [routerLink]="['/patient', doctorId]"><mat-icon>cancel</mat-icon></button>
+        </mat-card-actions>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-card-content style="margin: 5 0 5 10px;">
+      <mat-grid-list cols="12" rowHeight="120px">
+        <mat-grid-tile [colspan]="fieldColspan">
+          <span class="view-label"> 
+            <img mat-card-avatar class="center-block img-responsive" [src]='patient.photo'
+              [title]='patient.name | uppercase' [style.width.px]='imageWidth' [style.height.px]='imageWidth'  [style.margin.px]='imageMargin'>
+          </span>
+        </mat-grid-tile>
+      </mat-grid-list>
+      
+      <div class="form-card">
+        <mat-grid-list cols="12" rowHeight="80px">
+          <mat-grid-tile [colspan]="fieldColspan">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Id</mat-label>
+              <input matInput id="id" type="text" placeholder="Id" formControlName="id" readonly>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="fieldColspan">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput id="name" type="text" placeholder="Name" formControlName="name" readonly/>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="fieldColspan">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Surname</mat-label>
+              <input matInput id="suranme" type="text" placeholder="Surnames" formControlName="surnames" readonly/>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="fieldColspan">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Social Security Number</mat-label>
+              <input matInput id="ssn" type="text" placeholder="Social Security Number" formControlName="socialSecurityNumber" readonly/>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="fieldColspan">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Birthday</mat-label>
+              <input matInput id="birthday" type="text" placeholder="Birthday " formControlName="birthday" readonly/>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="fieldColspan">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Street</mat-label>
+              <input matInput id="street" type="text" placeholder="Street " formControlName="street" readonly/>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="fieldColspan">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Portal</mat-label>
+              <input matInput id="portal" type="text" placeholder="Portal " formControlName="portal" readonly/>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="fieldColspan">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Number</mat-label>
+              <input matInput id="number" type="text" placeholder="Number " formControlName="number" readonly/>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

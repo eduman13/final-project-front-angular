@@ -1,0 +1,16 @@
+<mat-dialog-content novalidate [formGroup]="addressForm">
+    <mat-form-field>
+      <input matInput placeholder="Street" formControlName="street">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Portal" formControlName="portal">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Number" formControlName="number">
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog mat-dialog-close (click)="updateAddress()">Save</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

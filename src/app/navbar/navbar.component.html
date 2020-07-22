@@ -1,0 +1,11 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+    <mat-toolbar color="primary">
+        <h1 class="example-app-name" [routerLink]="['/main', user.id]">Demo Medical Center</h1>
+        <button mat-flat-button color="primary" (click)="logout()"><mat-icon>exit_to_app</mat-icon>Log-out</button>
+    </mat-toolbar>
+    <mat-sidenav-container>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

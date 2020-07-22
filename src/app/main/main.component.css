@@ -1,0 +1,13 @@
+.main-container {
+    width: 70%;
+    max-width: 750px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card-item {
+    width: 25%;
+    min-width: 150px;
+}

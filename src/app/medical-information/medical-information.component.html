@@ -1,0 +1,81 @@
+<form novalidate [formGroup]="doctorForm">
+
+    <mat-card>
+  
+      <mat-toolbar style="background-color: #FFF">
+        <mat-toolbar-row>
+          <span class="view-card-title">{{ pageTitle }}</span>
+          <span class="title-spacer"></span>
+          <mat-card-actions>
+            <button mat-mini-fab style="margin-right:10px; background-color:darkgray" (click)="reset()">
+              <mat-icon>refresh</mat-icon>
+            </button>
+            <button mat-mini-fab class="" style="margin-right:10px; " (click)="openDialog()">
+                <mat-icon>update</mat-icon>
+              </button>
+            <button mat-mini-fab class="" style="margin-right:10px; " [routerLink]="['/main', doctorId]">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-toolbar-row>
+      </mat-toolbar>
+  
+      <mat-card-content style="margin: 5 0 5 10px;">
+  
+        <mat-grid-list cols="12" rowHeight="120px">
+          <mat-grid-tile [colspan]="fieldColspan">
+          </mat-grid-tile>
+        </mat-grid-list>
+        <div class="form-card">
+          <mat-grid-list cols="12" rowHeight="80px">
+            <mat-grid-tile [colspan]="fieldColspan">
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput id="name" type="text" placeholder="Name" formControlName="name" readonly/>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="fieldColspan">
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label>Surnames</mat-label>
+                <input matInput id="surnames" type="text" placeholder="Surnames" formControlName="surnames" readonly/>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="fieldColspan">
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label>School Number</mat-label>
+                <input matInput id="schoolNumber" type="text" placeholder="School Number"
+                  formControlName="schoolNumber" readonly/>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="fieldColspan">
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label>birthday</mat-label>
+                <input matInput id="birthday" type="text" placeholder="Birthday" formControlName="birthday" readonly/>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="fieldColspan">
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label>Street</mat-label>
+                <input matInput id="street" type="text" placeholder="Street" formControlName="street" readonly/>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="fieldColspan">
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label>Portal</mat-label>
+                  <input matInput id="portal" type="text" placeholder="Portal" formControlName="portal" readonly/>
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="fieldColspan">
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label>number</mat-label>
+                  <input matInput id="number" type="text" placeholder="Number" formControlName="number" readonly/>
+                </mat-form-field>
+              </mat-grid-tile>
+          </mat-grid-list>
+  
+        </div>
+  
+      </mat-card-content>
+  
+    </mat-card>
+  </form>
