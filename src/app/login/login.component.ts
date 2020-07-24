@@ -15,7 +15,7 @@ import { User } from '../model/securedUser.class';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  urlBasic = 'http://localhost:8082/login';
+  urlBasic = 'https://final-project-edge-service.herokuapp.com/login';
 
   isLogin: boolean = false;
 

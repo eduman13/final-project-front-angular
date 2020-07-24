@@ -9,7 +9,7 @@ import { Medication } from '../model/medication';
 @Injectable()
 export class PatientService {
 
-    private urlBasic = 'http://localhost:8082/patient/';
+    private urlBasic = 'https://final-project-edge-service.herokuapp.com/';
 
     constructor(
         private http: HttpClient,
@@ -23,36 +23,36 @@ export class PatientService {
     }
 
     getPatientsByDoctor(id: number): Observable<Patient[]> {
-        let url = `${this.urlBasic}find_all_by_doctor/${id}`;
+        let url = `${this.urlBasic}patient/find_all_by_doctor/${id}`;
         return this.http.get(url)
             .pipe(map(this.extractData));
     }
 
     getPatientById(id: number): Observable<Patient> {
-        let url = `${this.urlBasic}find_by_id/${id}`;
+        let url = `${this.urlBasic}patient/find_by_id/${id}`;
         return this.http.get(url)
             .pipe(map(this.extractData));
     }
 
     getMedicationByPatient(id: number): Observable<Medication> {
-        let url = `http://localhost:8082/medication/find_by_patient/${id}`;
+        let url = `${this.urlBasic}medication/find_by_patient/${id}`;
         return this.http.get(url)
             .pipe(map(this.extractData));
     }
 
     getAll(): Observable<Patient[]> {
-        let url =`http://localhost:8082/patient/find_all`;
+        let url =`${this.urlBasic}patient/find_all`;
         return this.http.get(url)
             .pipe(map(this.extractData))
     }
 
     deletePatient(id: number): void {
-        let url = `http://localhost:8082/patient/delete/${id}`;
+        let url = `${this.urlBasic}patient/delete/${id}`;
         this.http.delete(url).subscribe();
     }
 
     createPatient(patient: Patient): void {
-        let url = `http://localhost:8082/patient/create`;
+        let url = `${this.urlBasic}patient/create`;
         const header: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
         this.http.post(url, patient, {headers: header}).subscribe();
     }

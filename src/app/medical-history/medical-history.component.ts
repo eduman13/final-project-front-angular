@@ -12,7 +12,7 @@ export class MedicalHistoryComponent implements OnInit {
 
   private sub: Subscription;
   patientId: number;
-  urlBasic = 'http://localhost:8082/medical_history/pdf/';
+  urlBasic = 'https://final-project-edge-service.herokuapp.com/medical_history/pdf/'
   urlPdf: string;
 
   constructor(

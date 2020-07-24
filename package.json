@@ -1,18 +1,21 @@
 {
-  "name": "final-project",
+  "name": "final-project-angular-front",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
+    "ng": "node server.js",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ngcc",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.0.2",
     "@angular/cdk": "^10.0.2",
+    "@angular/cli": "~10.0.1",
     "@angular/common": "~10.0.2",
     "@angular/compiler": "~10.0.2",
     "@angular/core": "~10.0.2",
@@ -22,8 +25,10 @@
     "@angular/platform-browser-dynamic": "~10.0.2",
     "@angular/router": "~10.0.2",
     "rxjs": "~6.5.5",
+    "express": "^4.17.1",
     "safe-pipe": "^1.0.3",
     "tslib": "^2.0.0",
+    "typescript": "~3.9.5",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
