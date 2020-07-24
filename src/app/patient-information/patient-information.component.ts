@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 
 import { Patient } from '../model/patient';
+import { AuthUtils } from '../utils/auth-utils';
 
 @Component({
   selector: 'app-patient-information',
@@ -23,6 +24,7 @@ export class PatientInformationComponent implements OnInit {
   patientId: number;
   imageWidth = 100;
   imageMargin = 2;
+  isAdmin: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -47,6 +49,7 @@ export class PatientInformationComponent implements OnInit {
       portal: '',
       number: ''
     });
+    this.isAdmin = AuthUtils.getRoles().includes('ADMIN');
   }
 
   searchPatient() {
@@ -55,6 +58,10 @@ export class PatientInformationComponent implements OnInit {
 
   getPatientById(patientId: number): void {
     this.patientService.getPatientById(patientId).subscribe(patient => this.onAccountRetrieved(patient));
+  }
+
+  deletePatient(): void {
+    this.patientService.deletePatient(this.patientId);
   }
 
   onAccountRetrieved(patient: Patient): void {
@@ -78,10 +85,6 @@ export class PatientInformationComponent implements OnInit {
     const config = new MatDialogConfig();
     config.disableClose = true;
     config.autoFocus = true;
-
-    config.data = {
-      patientId: this.patientId
-    };
 
     const dialogRef = this.dialog.open(DialogMedicationDialog, config);
 

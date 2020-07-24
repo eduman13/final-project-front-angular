@@ -1,0 +1,9 @@
+.title-spacer {
+    flex: 1 1 auto;
+  }
+  
+.form-field{
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+}

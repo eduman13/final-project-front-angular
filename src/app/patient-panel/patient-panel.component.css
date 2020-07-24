@@ -10,6 +10,7 @@ mat-row:nth-child(even) {
   background-color: #f9f7fc;
 }
 
+
 mat-row:hover {
   background-color: #DCDCDC;
   cursor: pointer;

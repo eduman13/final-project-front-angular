@@ -121,6 +121,7 @@ export class MedicalInformationComponent implements OnInit {
 @Component({
   selector: 'dialog-medical',
   templateUrl: 'dialog-medical.html',
+  styleUrls: ['./dialog-medical.css']
 })
 export class DialogMedicalDialog implements OnInit {
 

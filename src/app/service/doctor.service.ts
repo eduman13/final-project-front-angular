@@ -34,6 +34,18 @@ export class DoctorService {
         this.http.put(url, address, {headers: header}).subscribe();
     }
 
+    getAll(): Observable<Doctor[]> {
+        const url = 'http://localhost:8082/doctor/find_all';
+        return this.http.get(url)
+            .pipe(map(this.extractData));
+    }
+
+    createDoctor(doctor: Doctor): void {
+        const url = `http://localhost:8082/user/doctor/create`;
+        const header: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+        this.http.post(url, doctor, {headers: header}).subscribe();
+    }
+
     private extractData(response: Response) {
         let body: any = response.json ? response.json() : response;
         return body.data ? body.data : (body || {});

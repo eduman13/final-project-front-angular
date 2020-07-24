@@ -5,13 +5,19 @@
         <span class="view-card-title">{{ pageTitle }}</span>
         <span class="title-spacer"></span>
         <mat-card-actions>
-          <button mat-mini-fab style="margin-right:30px;" (click)="goToLink()"><mat-icon>local_hospital</mat-icon></button>
+          <button mat-mini-fab style="margin-right:30px;" (click)="goToLink()" *ngIf="!isAdmin"><mat-icon>local_hospital</mat-icon></button>
         </mat-card-actions>
         <mat-card-actions>
-          <button mat-mini-fab style="margin-right:30px;" (click)="openDialog()"><mat-icon>local_pharmacy</mat-icon></button>
+          <button mat-mini-fab style="margin-right:30px;" (click)="openDialog()" *ngIf="!isAdmin"><mat-icon>local_pharmacy</mat-icon></button>
         </mat-card-actions>
         <mat-card-actions>
-          <button mat-mini-fab style="margin-right:30px;" [routerLink]="['/patient', doctorId]"><mat-icon>cancel</mat-icon></button>
+          <button mat-mini-fab style="margin-right:30px;" [routerLink]="['/patient', doctorId]" *ngIf="!isAdmin"><mat-icon>cancel</mat-icon></button>
+        </mat-card-actions>
+        <mat-card-actions>
+          <button mat-mini-fab style="margin-right:30px;" [routerLink]="['/patient-admin', doctorId]" *ngIf="isAdmin" (click)="deletePatient()"><mat-icon>delete</mat-icon></button>
+        </mat-card-actions>
+        <mat-card-actions>
+          <button mat-mini-fab style="margin-right:30px;" [routerLink]="['/patient-admin', doctorId]" *ngIf="isAdmin"><mat-icon>cancel</mat-icon></button>
         </mat-card-actions>
       </mat-toolbar-row>
     </mat-toolbar>
@@ -27,12 +33,6 @@
       
       <div class="form-card">
         <mat-grid-list cols="12" rowHeight="80px">
-          <mat-grid-tile [colspan]="fieldColspan">
-            <mat-form-field class="form-field" appearance="outline">
-              <mat-label>Id</mat-label>
-              <input matInput id="id" type="text" placeholder="Id" formControlName="id" readonly>
-            </mat-form-field>
-          </mat-grid-tile>
           <mat-grid-tile [colspan]="fieldColspan">
             <mat-form-field class="form-field" appearance="outline">
               <mat-label>Name</mat-label>

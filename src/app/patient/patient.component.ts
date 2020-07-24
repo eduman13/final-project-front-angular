@@ -16,6 +16,7 @@ import { AuthUtils } from '../utils/auth-utils';
 export class PatientComponent implements OnInit {
 
   private sub: Subscription;
+  pageTitle = 'Patients';
   imageWidth = 30;
   imageMargin = 2;
   tileMedicalHistory = 'MEDICAL_HISTORY';
@@ -23,7 +24,6 @@ export class PatientComponent implements OnInit {
   id: number;
   dataSource: any = null;
   displayedColumns = ['photo', /* 'id', */ 'name', 'social security number', 'birthday'];
-  pageTitle: 'Patients';
   listFilter: any = {};
   searchFilter: any = {
     id: '',

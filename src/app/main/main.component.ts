@@ -1,3 +1,4 @@
+import { AuthUtils } from './../utils/auth-utils';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,6 +13,7 @@ export class MainComponent implements OnInit {
 
   private sub: Subscription;
   id: number;
+  isAdmin: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +25,7 @@ export class MainComponent implements OnInit {
         this.id = params['id'];
       }
     );
+    this.isAdmin = AuthUtils.getRoles().includes('ADMIN');
   }
 
 }

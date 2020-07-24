@@ -1,0 +1,41 @@
+<h2>Create Patient</h2>
+<mat-dialog-content novalidate [formGroup]="patientForm">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Surnames" formControlName="surnames" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Social Security Number" formControlName="socialSecurityNumber" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Birthday" formControlName="birthday" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Street" formControlName="street" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Portal" formControlName="portal" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Number" formControlName="number" required>
+    </mat-form-field>
+    <mat-radio-group formControlName="gender" required>
+        <mat-radio-button value="female">Female</mat-radio-button>
+        <mat-radio-button value="male">Male</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field>
+        <mat-label>doctorId</mat-label>
+        <mat-select formControlName="doctorId" required>
+            <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">{{ doctor.id }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" mat-dialog mat-dialog-close (click)="createPatient()" [disabled]="patientForm.invalid" >Save</button>
+  <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

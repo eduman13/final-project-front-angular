@@ -1,15 +1,27 @@
 <div class="main-container">
-    <mat-card [routerLink]="['/patient', id]" class="card-item">
+    <mat-card *ngIf="!isAdmin" [routerLink]="['/patient', id]" class="card-item">
         <mat-card-title>
             <mat-icon>search</mat-icon>
         </mat-card-title>
         <mat-card-subtitle>Search Patients</mat-card-subtitle>
     </mat-card>
-    <mat-card [routerLink]="['/medical-information', id]" class="card-item">
+    <mat-card *ngIf="!isAdmin" [routerLink]="['/medical-information', id]" class="card-item">
         <mat-card-title>
             <mat-icon>info</mat-icon>
         </mat-card-title>
         <mat-card-subtitle>My Info</mat-card-subtitle>
+    </mat-card>
+    <mat-card *ngIf="isAdmin" [routerLink]="['/doctor-admin']" class="card-item">
+        <mat-card-title>
+            <mat-icon>create</mat-icon>
+        </mat-card-title>
+        <mat-card-subtitle>Doctor Panel</mat-card-subtitle>
+    </mat-card>
+    <mat-card *ngIf="isAdmin" [routerLink]="['/patient-admin', id]" class="card-item">
+        <mat-card-title>
+            <mat-icon>create</mat-icon>
+        </mat-card-title>
+        <mat-card-subtitle>Patient Panel</mat-card-subtitle>
     </mat-card>
 
 </div>

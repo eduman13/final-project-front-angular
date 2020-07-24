@@ -1,0 +1,86 @@
+<form novalidate [formGroup]="doctorForm">
+
+    <mat-card>
+  
+      <mat-toolbar style="background-color: #FFF">
+        <mat-toolbar-row>
+          <span class="view-card-title">{{ pageTitle }}</span>
+          <span class="title-spacer"></span>
+          <mat-card-actions>
+            <button mat-mini-fab class="" style="margin-right:10px; " [disabled]="doctorForm.invalid" (click)="createDoctor()">
+                <mat-icon>save</mat-icon>
+              </button>
+            <button mat-mini-fab class="" style="margin-right:10px; " [routerLink]="['/doctor-admin']">
+              <mat-icon>cancel</mat-icon>
+            </button>
+  
+          </mat-card-actions>
+  
+        </mat-toolbar-row>
+      </mat-toolbar>
+  
+      <mat-card-content style="margin: 5 0 5 10px;">
+  
+        <mat-grid-list cols="12" rowHeight="120px">
+          <mat-grid-tile [colspan]="fieldColspan">
+          </mat-grid-tile>
+        </mat-grid-list>
+        <div class="form-card">
+          <mat-grid-list cols="12" rowHeight="80px">
+            <mat-grid-tile [colspan]="fieldColspan">
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput id="name" type="text" placeholder="Ex: Eduardo" formControlName="name" />
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="fieldColspan">
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label>Surnames</mat-label>
+                <input matInput id="surnames" type="text" placeholder="Ex: García Espeso" formControlName="surnames" />
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="fieldColspan">
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label>School Number</mat-label>
+                <input matInput id="schoolNumber" type="text" placeholder="Ex: 567654567845R"
+                  formControlName="schoolNumber"/>
+                  <mat-error *ngIf="doctorForm.invalid">
+                    Invalid Format
+                  </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="fieldColspan">
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label>Birthday</mat-label>
+                <input matInput id="birthday" type="text" placeholder="Ex: YYYY/mm/dd" formControlName="birthday"/>
+                <mat-error *ngIf="doctorForm.invalid">
+                    Invalid Format
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="fieldColspan">
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label>Street</mat-label>
+                <input matInput id="street" type="text" placeholder="Ex: C/ Pedro de Alvarado" formControlName="street" />
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="fieldColspan">
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label>Portal</mat-label>
+                  <input matInput id="portal" type="text" placeholder="Ex: 20" formControlName="portal" />
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="fieldColspan">
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label>Number</mat-label>
+                  <input matInput id="number" type="text" placeholder="Ex: 6" formControlName="number" />
+                </mat-form-field>
+              </mat-grid-tile>
+          </mat-grid-list>
+  
+        </div>
+  
+      </mat-card-content>
+  
+    </mat-card>
+  </form>

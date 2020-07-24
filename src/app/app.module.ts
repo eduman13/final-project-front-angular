@@ -19,6 +19,9 @@ import { SafePipe } from './pipes/safe.pipe';
 import { DialogMedicationDialog } from './patient-information/patient-information.component';
 import { DoctorService } from './service/doctor.service';
 import { MedicalInformationComponent, DialogMedicalDialog } from './medical-information/medical-information.component';
+import { DoctorAdminComponent } from './doctor-admin/doctor-admin.component';
+import { CreateDoctorComponent } from './create-doctor/create-doctor.component';
+import { PatientPanelComponent, DialogCreatePatient } from './patient-panel/patient-panel.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,11 @@ import { MedicalInformationComponent, DialogMedicalDialog } from './medical-info
     SafePipe,
     DialogMedicationDialog,
     MedicalInformationComponent,
-    DialogMedicalDialog
+    DialogMedicalDialog,
+    DoctorAdminComponent,
+    CreateDoctorComponent,
+    PatientPanelComponent,
+    DialogCreatePatient
   ],
   entryComponents: [DialogMedicationDialog, DialogMedicalDialog],
   imports: [
@@ -44,7 +51,7 @@ import { MedicalInformationComponent, DialogMedicalDialog } from './medical-info
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [PatientService, DoctorService],
+  providers: [PatientService, DoctorService, DialogCreatePatient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

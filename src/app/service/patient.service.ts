@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -38,6 +38,23 @@ export class PatientService {
         let url = `http://localhost:8082/medication/find_by_patient/${id}`;
         return this.http.get(url)
             .pipe(map(this.extractData));
+    }
+
+    getAll(): Observable<Patient[]> {
+        let url =`http://localhost:8082/patient/find_all`;
+        return this.http.get(url)
+            .pipe(map(this.extractData))
+    }
+
+    deletePatient(id: number): void {
+        let url = `http://localhost:8082/patient/delete/${id}`;
+        this.http.delete(url).subscribe();
+    }
+
+    createPatient(patient: Patient): void {
+        let url = `http://localhost:8082/patient/create`;
+        const header: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+        this.http.post(url, patient, {headers: header}).subscribe();
     }
 
     private extractData(response: Response) {

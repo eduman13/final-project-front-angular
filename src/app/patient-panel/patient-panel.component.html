@@ -1,0 +1,51 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <h1>{{ pageTitle }}</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-toolbar-row>
+        <mat-toolbar-row>
+            <mat-card-actions>
+                <button mat-mini-fab style="margin-right:10px; " (click)="openDialog()">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                <button mat-mini-fab style="margin-right:10px; background-color:darkgray" (click)="reset()">
+                  <mat-icon>refresh</mat-icon>
+                </button>
+              </mat-card-actions>
+            <span class="title-spacer"></span>
+            <mat-form-field appearance="standard" class="search-form-fileld">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event.target.value)">
+                <mat-icon>filter_list</mat-icon>
+            </mat-form-field>
+        </mat-toolbar-row>
+    </mat-toolbar-row>
+
+    <mat-table #table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="photo">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let patient">
+              <!-- <a [routerLink]="['/customer', customer.id]"> -->
+              <img [src]="patient.photo" [title]='patient.name | uppercase'
+                [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
+              <!-- </a> -->
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+            <mat-cell *matCellDef="let patient">{{ patient.completeName }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="socialSecurityNumber">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Social Security Number</mat-header-cell>
+            <mat-cell *matCellDef="let patient">{{ patient.socialSecurityNumber }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="birthday">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Birthday</mat-header-cell>
+            <mat-cell *matCellDef="let patient">{{ patient.birthday }}</mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row [routerLink]="['/patient-information/', id, row.id]" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</mat-card>

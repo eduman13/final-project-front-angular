@@ -18,6 +18,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
     exports: [
@@ -40,7 +42,9 @@ import { MatDividerModule } from '@angular/material/divider';
         MatCheckboxModule,
         MatSnackBarModule,
         MatDividerModule,
-        MatTooltipModule
+        MatTooltipModule,
+        MatDatepickerModule,
+        MatRadioModule
     ]
 })
 export class MaterialModule { }
