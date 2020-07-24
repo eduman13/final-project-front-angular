@@ -1,27 +1,24 @@
-# FinalProject
+# Final Project
+## Introduction
+The following app consists of a small web page to manage the patients and doctors of a health center.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
+## Users
 
-## Development server
+The application consists of two types of users: administrators and doctors. 
+Administrators can consult a list of doctors where they can access the information of each one, 
+being able to create new doctors. 
+They will also be able to access a list of patients, being able to access the information of each one. 
+They can create new patients and delete them.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Doctors can access a list of their patients. Being able to access your information, 
+your medical history and your current medication. 
+They can access your information and change your address if they want.
 
-## Code scaffolding
+## Notes
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The application is displayed in heroku in the following url: https://final-project-angular-front.herokuapp.com/login
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+In the projects there are two branches, a master with the project in local and another to deploy the application in heroku call heroku-deploy
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The call to generate the pdf, in heroku it is generated badly, I don't know why it is because github is correctly saving the url
