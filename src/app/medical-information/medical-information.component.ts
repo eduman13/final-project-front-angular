@@ -7,6 +7,7 @@ import { DoctorService } from '../service/doctor.service';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { Doctor } from './../model/doctor';
 import { Address } from './../model/address';
+import { AuthUtils } from '../utils/auth-utils';
 
 @Component({
   selector: 'app-medical-information',
@@ -21,6 +22,7 @@ export class MedicalInformationComponent implements OnInit {
   doctor: Doctor;
   doctorId: number;
   fieldColspan = 3;
+  isAdmin: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -46,6 +48,7 @@ export class MedicalInformationComponent implements OnInit {
       portal: '',
       number: ''
     });
+    this.isAdmin = AuthUtils.getRoles().includes('ADMIN');
   }
 
   reset(): void {

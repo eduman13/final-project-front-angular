@@ -30,7 +30,7 @@
             <mat-cell *matCellDef="let doctor">{{ doctor.birthday }}</mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row [routerLink]="['/account/', row.id]" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-row [routerLink]="['/medical-information/', row.id]" *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
 
 </mat-card>

@@ -24,7 +24,6 @@ export class MedicalHistoryComponent implements OnInit {
       params => {
         this.patientId = params['patientId'];
         this.urlPdf = `${this.urlBasic}${this.patientId}`;
-        console.log(this.urlPdf);
       }
     );
   }
