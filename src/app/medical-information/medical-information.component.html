@@ -7,13 +7,16 @@
           <span class="view-card-title">{{ pageTitle }}</span>
           <span class="title-spacer"></span>
           <mat-card-actions>
-            <button mat-mini-fab style="margin-right:10px; background-color:darkgray" (click)="reset()">
+            <button mat-mini-fab style="margin-right:10px; background-color:darkgray" (click)="reset()" *ngIf="!isAdmin">
               <mat-icon>refresh</mat-icon>
             </button>
-            <button mat-mini-fab class="" style="margin-right:10px; " (click)="openDialog()">
+            <button mat-mini-fab class="" style="margin-right:10px; " (click)="openDialog()" *ngIf="!isAdmin">
                 <mat-icon>update</mat-icon>
               </button>
-            <button mat-mini-fab class="" style="margin-right:10px; " [routerLink]="['/main', doctorId]">
+            <button mat-mini-fab class="" style="margin-right:10px; " [routerLink]="['/main', doctorId]" *ngIf="!isAdmin">
+              <mat-icon>cancel</mat-icon>
+            </button>
+            <button mat-mini-fab class="" style="margin-right:10px; " [routerLink]="['/doctor-admin']" *ngIf="isAdmin">
               <mat-icon>cancel</mat-icon>
             </button>
           </mat-card-actions>

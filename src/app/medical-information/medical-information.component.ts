@@ -1,3 +1,4 @@
+import { AuthUtils } from './../utils/auth-utils';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -21,6 +22,7 @@ export class MedicalInformationComponent implements OnInit {
   doctor: Doctor;
   doctorId: number;
   fieldColspan = 3;
+  isAdmin: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -46,6 +48,7 @@ export class MedicalInformationComponent implements OnInit {
       portal: '',
       number: ''
     });
+    this.isAdmin = AuthUtils.getRoles().includes('ADMIN');
   }
 
   reset(): void {
@@ -129,7 +132,7 @@ export class DialogMedicalDialog implements OnInit {
   doctorId: number;
   fieldColspan = 3;
   address: Address;
-
+  
   constructor(
     private fb: FormBuilder,
     private doctorService: DoctorService,
