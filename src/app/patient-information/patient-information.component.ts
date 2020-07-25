@@ -86,6 +86,9 @@ export class PatientInformationComponent implements OnInit {
     config.disableClose = true;
     config.autoFocus = true;
 
+    config.data = {
+      patientId: this.patientId
+    };
     const dialogRef = this.dialog.open(DialogMedicationDialog, config);
 
     dialogRef.afterClosed().subscribe(result => {
